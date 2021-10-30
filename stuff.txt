@@ -154,3 +154,21 @@ function updateRole() {
         });
     })
 }
+
+
+
+Hold on, im typing it up for you - it will take a few minutes
+:+1::skin-tone-5:
+1
+
+10:32
+Here is what I propose. create an index.js file in your db folder, in idex.js:
+1. you will create a class that has a constructor that takes in a connection as a parameter
+2. create methods there, for example view all employees - this is where you will have a this.connection.promise().query() and run the appropriate queries
+In your server.js:
+1. import the entire db folder
+2. keep the switch statement
+3. for example - the viewEmployees will call viewAllEmployees (from the db/index.js file)
+• use a .then to get the response and use the console.table to show the rows
+10:32
+So you essentially have all of the right parts, they just need to be moved around a bit to get the promises to work :s

@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 // require('dotenv').config();
 
@@ -12,6 +11,9 @@ const connection = mysql.createConnection({
     database: "employee"
   });
   
-  connection.connect();
+  connection.connect(err => 
+    {if (err) {
+      throw err
+    }})
 
   module.exports = connection;

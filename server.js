@@ -1,31 +1,15 @@
 const inquirer = require("inquirer");
-const mysql = require('mysql2');
+const db = require("./db/index");
 require("console.table");
-const sequelize = require('./db/connection');
 
 init ();
 
 function init() {
-
-    const logo = "========EMPLOYEE====="
-                "========TRACKER=======";
-
+    const logo = "========EMPLOYEE=====TRACKER=======";
   console.log(logo);
-
   promptMenu();
 }
 
-// Connect to database
-// const db = mysql.createConnection(
-//     {
-//       host: 'localhost',
-//       // Your MySQL username,
-//       user: 'root',
-//       // Your MySQL password
-//       password: '',
-//       database: 'employee'
-//     },
-//   );
 
 // menu here
 function promptMenu () {
@@ -74,25 +58,25 @@ function promptMenu () {
         let choice = res.options;
         switch(choice) {
             case "VIEW_DEPARTMENTS":
-                viewDepartments()
+                viewAllDepartments()
                 break;
             case "VIEW_EMPLOYEES":
-                viewEmployees()
+                viewAllEmployees()
                 break;
             case "VIEW_ROLES":
-                viewRoles()
+                viewAllRoles()
                 break;
             case "ADD_DEPARTMENT":
-                addDepartment()
+                addNewDepartment()
                 break;
             case "ADD_EMPLOYEE":
-                addEmployee()
+                addNewEmployee()
                 break;
             case "ADD_ROLE":
-                addRole()
+                addNewRole()
                 break;
             case "UPDATE_ROLE":
-                updateRole()
+                updateCurrentRole()
                 break;
             case "QUIT":
                 quit(); 
@@ -103,49 +87,35 @@ function promptMenu () {
 };
 
 // view all departments
-function viewDepartments() {
-    const sql = `SELECT * FROM department;`;
-        db.query(sql, (err, rows) => {
-            if (err) {
-                console.log(err.message);
-                return;
-            } else {
-                console.table(rows);
-            }
-            promptMenu();
-        });
+function viewAllDepartments() {
+    db.viewDepartments().then((data) => {
+        console.log(data[0])
+    }).then(() => {
+        promptMenu();
+    })
+    
     }
 
 // View all employees
-function viewEmployees() {
-    const sql = `SELECT * FROM employee;`;
-        db.query(sql, (err, rows) => {
-            if (err) {
-                console.log(err.message);
-                return;
-            } else {
-                console.table(rows);
-            }
-            promptMenu();
-        });
+function viewAllEmployees() {
+    db.viewEmployees().then((data) => {
+        console.log(data[0])
+    }).then(() => {
+        promptMenu();
+    })
   }
 
   // view all roles
-function viewRoles() {
-    const sql = `SELECT * FROM role;`;
-        db.query(sql, (err, rows) => {
-            if (err) {
-                console.log(err.message);
-                return;
-            } else {
-                console.table(rows);
-            }
-            promptMenu();
-        });
+function viewAllRoles() {
+    db.viewRoles().then((data) => {
+        console.log(data[0])
+    }).then(() => {
+        promptMenu();
+    })
 }
 
 // add a department
-function addDepartment() {
+function addNewDepartment() {
     inquirer.prompt([
       {
         name: "name",
