@@ -12,7 +12,7 @@ class DB {
         const data = this.connection.promise().query(
           "SELECT department.id, department.name FROM department;"
         );
-        
+
         return data
       }
    
@@ -34,7 +34,7 @@ class DB {
 
 
        // add_department
-  addDepartment(department) {
+  createDepartment(department) {
     return this.connection.promise().query("INSERT INTO department SET ?", department);
   }
 
