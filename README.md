@@ -3,8 +3,6 @@
 ## An app that helps you keep your team organized!
 
 
-![screenshot](Assets/images/screenshot.png)
-
 ## Table of Contents 
 
 * [Description](#description)
@@ -36,7 +34,7 @@ Demo video:
 
 
 ## Known Bugs
-* 
+* Breaks after I enter in employees last name. 
 
 ## Contact 
 
