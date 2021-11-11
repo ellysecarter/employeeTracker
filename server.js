@@ -199,6 +199,84 @@ function addNewEmployee() {
         })
 }
 
+// add a role
+// function addRole() {
+//   db.findAllDepartments()
+//   .then(([rows]) => {
+//     let departments = rows;
+//     const departmentChoices = departments.map(({ id, name }) => ({
+//       name: name,
+//       value: id
+//     }));
+
+//     prompt([
+//       {
+//         name: "title",
+//         message: "What is the name of the role?"
+//       },
+//       {
+//         name: "salary",
+//         message: "What is the salary of the role?"
+//       },
+//       {
+//         type: "list",
+//         name: "department_id",
+//         message: "Which department does the role belong to?",
+//         choices: departmentChoices
+//       }
+//     ])
+//       .then(role => {
+//         db.createRole(role)
+//           .then(() => console.log(`Added ${role.title} to the database`))
+//           .then(() => promptMenu())
+//       })
+//   })
+// }
+
+// update a role
+// function updateRole() {
+//   db.findAllEmployees()
+//   .then(([rows]) => {
+//     let employees = rows;
+//     const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
+//       name: `${first_name} ${last_name}`,
+//       value: id
+//     }));
+
+//     prompt([
+//       {
+//         type: "list",
+//         name: "employeeId",
+//         message: "Which employee's role do you want to update?",
+//         choices: employeeChoices
+//       }
+//     ])
+//       .then(res => {
+//         let employeeId = res.employeeId;
+//         db.findAllRoles()
+//           .then(([rows]) => {
+//             let roles = rows;
+//             const roleChoices = roles.map(({ id, title }) => ({
+//               name: title,
+//               value: id
+//             }));
+
+//             prompt([
+//               {
+//                 type: "list",
+//                 name: "roleId",
+//                 message: "Which role do you want to assign the selected employee?",
+//                 choices: roleChoices
+//               }
+//             ])
+//               .then(res => db.updateEmployeeRole(employeeId, res.roleId))
+//               .then(() => console.log("Updated employee's role"))
+//               .then(() => loadPrompts())
+//           });
+//       });
+//   })
+// }
+
 
 // Exit the application 
 function quit() {
