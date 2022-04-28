@@ -9,6 +9,7 @@
 * [Technologies used](#technologies-used)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Demo Video](#demo-video)
 * [Known bugs](#known-bugs)
 * [Contact](#contact)
 
@@ -30,7 +31,9 @@ Go to https://github.com/ellysecarter/employee-tracker and clone the SSH key. Ne
 
 In your terminal in VS code type in the following command: "node index.js" and follow prompt. Answer all the questions regarding your Team Manager, Engineer, and Intern. Once all information has been entered, head over to "index.html" in root folder and open it in your browser.
 
-Demo video: 
+## Demo video: 
+https://drive.google.com/file/d/1ofryeUDtSt-BMyCeB_twarwYA9j5Mg06/view
+
 
 
 ## Known Bugs
