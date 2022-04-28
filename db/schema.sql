@@ -3,10 +3,6 @@ CREATE DATABASE employee;
 USE employee;
 
 
-CREATE DATABASE employee;
-
-USE employee;
-
 DROP TABLE IF EXISTS department;
 DROP TABLE IF EXISTS role;
 
